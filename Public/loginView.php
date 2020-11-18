@@ -1,21 +1,23 @@
 <?php
-
 use App\Login;
-
-require "Autoloader.php";
+require "../Autoloader.php";
 Autoloader::register();
 
 $login = new Login();
 
-if(isset($_POST['email'])) {
-    $email = $_POST['email'];
-    $login->addAccount($email);
-    echo $_POST['email'];
+if (isset($_GET['submit'])) {
+    $login->getAccount($_POST['email'], $_POST['password']);
+}elseif (isset($_GET['error'])) {
+    if ($_GET['error'] == 'pseudo') {
+        echo 'Pseudo Incorect';
+    }elseif ($_GET['error'] == 'password'){
+        echo 'password incorect';
+    }
 }
 ?>
 
-<form action="login.php" method="post">
-    <input type="email" name="email">
+<form action="loginView.php?submit=send" method="post">
+    <input type="text" name="email">
     <input type="password" name="password">
-    <button type="submit">Envoyer</button>
+    <button type="submit"> Envoyer </button>
 </form>
