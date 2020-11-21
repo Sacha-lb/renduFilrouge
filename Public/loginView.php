@@ -1,18 +1,24 @@
 <?php
-use App\Login;
+use App\User;
 require "../Autoloader.php";
 Autoloader::register();
 
-$login = new Login();
+$user = new User();
 
 if (isset($_GET['submit'])) {
-    $login->getAccount($_POST['email'], $_POST['password']);
+    $user->getAccount($_POST['email'], $_POST['password']);
 }elseif (isset($_GET['error'])) {
-    if ($_GET['error'] == 'pseudo') {
-        echo 'Pseudo Incorect';
-    }elseif ($_GET['error'] == 'password'){
-        echo 'password incorect';
-    }
+    switch ($_GET["error"]) {
+        case 'connected':
+            echo 'Vous êtes connecter !';
+            break;
+        case 'password':
+            echo 'Mot de passe incorect !';
+            break;
+        case 'pseudo':
+            echo 'Pseudo incorect ! ';
+            break;
+        }   
 }
 ?>
 
