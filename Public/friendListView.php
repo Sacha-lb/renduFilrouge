@@ -6,10 +6,12 @@ require "../Autoloader.php";
 Autoloader::register();
 
 $friendList = new FriendList();
-$friendList->getFriendList();
+$listFriends = $friendList->getFriendList();
+var_dump ($listFriends);
 
 if (isset($_GET['deleteFriendId'])) {
-    $friendList->deleteFriend($_GET['deleteFriendId'], $userId);
+    $friendList->deleteFriend($_GET['deleteFriendId'], 1);
+}
 ?>
 
 <h1>Liste d'amis</h1>
@@ -18,11 +20,12 @@ if (isset($_GET['deleteFriendId'])) {
 		<td>Pseudo</td>
 		<td>Supprimer</td>
 	</tr>
-	     <?php foreach($listFriends as $friend): ?>
-            <tr>
-                <td><a href="order.php?friendId=<?= $friend['friendList_userID2'] ?>">Supprimer amis</a></td>
-                <td><?= $friend->orderDate ?></td>
-                <td><a href="order.php?deleteFriendId=<?= $friend['friendList_userID2'] ?>">Supprimer amis</a></td>
-            </tr>
-         <?php endforeach; ?>
+	
+         
+         <?php
+              foreach($listFriends as $friend):
+              echo '<tr><td>' . $friend["friendsList_userID2"] . '</td><td><a href="friendListView.php?deleteFriendId=' . $friend['friendsList_userID2'] .'">Supprimer amis</a></td></tr>'; 
+              endforeach;
+         ?>
 </table>
+
