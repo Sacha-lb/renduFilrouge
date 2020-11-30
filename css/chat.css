@@ -1,0 +1,38 @@
+.chat{
+    border: 1px solid black;
+    display: inline-block;
+}
+
+#zoneMessage{
+    display: block;
+    height: 330px;
+    max-height: 330px;
+    overflow: auto;
+}
+
+#zoneMessage img{
+    margin: 0 0 0 10px;
+    max-width: 10%;
+}
+
+.message{
+    max-width: 100%;
+}
+
+.message p{
+    display: inline-block;
+    margin: 15px;
+    padding: 20px;
+    background-color: #F5F5F5;
+    border-radius: 8px;
+    max-width: calc(80% - 60px);
+    font-size: 0.8em;
+}
+
+.entreMessage form{
+    padding: 10px;
+}
+
+.hide{
+    visibility: hidden;
+}

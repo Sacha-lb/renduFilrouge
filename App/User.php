@@ -92,4 +92,41 @@ class User extends Database{
        }
     }
 
+    public function updateUser($champs, $value, $user)
+    {
+        $value = htmlspecialchars($value);
+        $insert = $this->pdo->prepare("UPDATE user SET $champs= :valeur
+                                        WHERE user_id = $user");
+        $insert->execute(array(
+            'valeur' => $value,
+        ));
+        $_SESSION[$champs] = $value;
+        echo $champs . ' Modifier avec succes !';
+    }
+
+    public function updatePassword($value, $user)
+    {
+        $value = hash('sha256', $value);
+
+        $insert = $this->pdo->prepare("UPDATE user SET user_password = :valeur
+                                        WHERE user_id = $user");
+        $insert->execute(array(
+            'valeur' => $value,
+        ));
+        echo 'MDP Modifier avec succes !';
+    }
+
+    public function disconnect($user)
+    {
+        $insert = $this->pdo->prepare("UPDATE user SET user_online = :valeur
+                                        WHERE user_id = $user");
+        $insert->execute(array(
+            'valeur' => 0,
+        ));
+
+        session_destroy();
+
+        header('location: loginView.php');
+    }
+
 }

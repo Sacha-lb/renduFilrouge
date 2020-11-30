@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #389db6;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 0;
+}
+
+ul li{
+    list-style: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+.login{
+    height: 90vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login form{
+    display: block;
+    margin: auto;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login form input{
+    margin: 10px;
+}
+
+h1{
+    text-align: center;
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+a{
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+}
+
+.black{
+    color: black;
+}
+
+.profil{
+    display: block;
+    text-align: center;
+}
+
+.profil li{
+    margin: 30px;
+
+}
+
+.profil a{
+    padding: 10px;
+    background-color: darkgray;
+    border-radius: 10px;
+    font-size: 13px;
+}
+
+#modif{
+    width: 400px;
+    margin: auto;
+}
+
+.button{
+    padding: 10px;
+    background-color: darkgray;
+    border-radius: 10px;
+    font-size: 13px;
+}
