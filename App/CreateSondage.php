@@ -10,8 +10,8 @@ Class CreateSondage extends Database{
 
         $question = htmlspecialchars($sondageQuestion);
 
-        $insert = $this->pdo->query("INSERT INTO sondage(sondage_question, user_id) 
-                                        VALUES ('$question', $userid)");
+        $insert = $this->pdo->query("INSERT INTO sondage(sondage_question, user_id, sondage_finish) 
+                                        VALUES ('$question', $userid, ADDDATE(NOW(), INTERVAL 15 MINUTE) )");
 
     }
 

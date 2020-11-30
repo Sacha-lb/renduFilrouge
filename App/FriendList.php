@@ -9,8 +9,11 @@ class FriendList extends Database{
 	
 	public function getFriendList()
 	{
-		$listFriends = $this->pdo->query("SELECT friendsList_id,user_pseudo,friendsList_userID2 FROM friendslist INNER JOIN user ON user.user_id = friendslist.friendsList_userID2 WHERE friendsList_userID1 = 1 AND user_online = 1");
-		$listFriends2 = $this->pdo->query("SELECT friendsList_id,user_pseudo,friendsList_userID1 FROM friendslist INNER JOIN user ON user.user_id = friendslist.friendsList_userID1 WHERE friendsList_userID2 = 1 AND user_online = 1");
+
+		$user = $_SESSION['user_id'];
+
+		$listFriends = $this->pdo->query("SELECT friendsList_id,user_pseudo,friendsList_userID2 FROM friendslist INNER JOIN user ON user.user_id = friendslist.friendsList_userID2 WHERE friendsList_userID1 = $user AND user_online = 1");
+		$listFriends2 = $this->pdo->query("SELECT friendsList_id,user_pseudo,friendsList_userID1 FROM friendslist INNER JOIN user ON user.user_id = friendslist.friendsList_userID1 WHERE friendsList_userID2 = $user AND user_online = 1");
 		$listFriends = $listFriends->fetchAll();
 		$listFriends2 = $listFriends2->fetchAll();
 		foreach ($listFriends as $friend) {
@@ -35,8 +38,8 @@ class FriendList extends Database{
 		return ($query);
 	}
 
-	public function addFriend($friendId, $userId)
-	{
-		$query = $this->pdo->query("INSERT INTO friendsList (friendsList_userID1, friendsList_userID2) VALUES('$userId', '$friendId')");
+	public function addFriend($friendId, $user)
+	{	
+		$query = $this->pdo->query("INSERT INTO friendsList (friendsList_userID1, friendsList_userID2) VALUES('$user', '$friendId')");
 	}
 }

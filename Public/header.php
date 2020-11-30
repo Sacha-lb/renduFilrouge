@@ -24,7 +24,7 @@
                     echo '<li><a href="friendListView.php">Amis</a></li>';
                 }
             ?>
-            <li>Crée un sondage</li>
-            <li>Sondage</li>
+            <li><a href="createSondageView.php">Crée un sondage</a></li>
+            <li><a href="indexView.php">Sondage</a></li>
         </ul>
     </header>
