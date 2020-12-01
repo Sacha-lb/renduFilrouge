@@ -12,6 +12,12 @@
 <body>
     <?php
         include 'header.php';
+        if (isset($_GET['submit'])) {
+            if (empty($_POST['reponse'])) {
+                //header('location: sondageView.php?error=empty&sondage_id='. $_GET['sondage_id'] .'');
+            }
+        }
+        
     ?>
     <div class="hide">
         <p id="user"><?= $_SESSION['user_id'] ?></p>
@@ -19,19 +25,23 @@
     </div>
 
     <main>
+        <?php
+            use App\AjaxRequest;
+            use App\Sondage;
+            require "../Autoloader.php";
+            Autoloader::register();
+
+            $chat = new AjaxRequest();
+            $sondage = new Sondage();
+
+            if ($_GET['submit'] === 'yes') {
+                $sondage = $sondage->setReponse();
+            }
+        ?>
 
         <section class="chat">
             <article id="zoneMessage">
-                <?php
-                    use App\Chat;
-                    require "../Autoloader.php";
-                    Autoloader::register();
-
-                    $chat = new Chat();
-                ?>
                 <div class="message">
-                    <img src="img/user.png" alt="Logo user">
-                    <p>Hi there 👋 <br> What brings you to Appetee today ?</p>
                 </div>
             </article>
             <hr>
@@ -42,6 +52,19 @@
                 </form>
             </article>
         </section>
+
+        <section class="chat">
+            <article>
+                <h1>Résultat</h1>
+            </article>
+            <article>
+                <ul id="zoneReponse">
+                    <li>Reponse 1: 2 votes</li>
+                    <li>Reponse 2: 4 votes</li>
+                </ul>
+            </article>
+        </section>
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="../js/chat.js"></script>
     </main>
