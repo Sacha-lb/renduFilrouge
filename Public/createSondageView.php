@@ -6,36 +6,46 @@
     $sondage = new CreateSondage();
 
     include 'header.php';
-    ?> <link rel="stylesheet" href="../css/style.css"> <?php
+?>
 
+<!DOCTYPE html>
+<html lang="fr">
 
-    if (isset($_GET['submit'])) {   
-    }else{
-        header('Location: CreateSondageView.php?submit=create');
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crée un sondage</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
 
-    if ($_GET['submit'] == 'create') {
-        ?>
-            <h1> Création de votre sondage !</h1>
+<body>
+    <?php
+        //Envoie vers la page creation de sondage si l'user est sur la page réponse maus que aucune question n'est enregistrer
+        if (isset($_GET['submit'])) {   
+        }else{
+            header('Location: CreateSondageView.php?submit=create');
+        }
+        if ($_GET['submit'] == 'create') {
+    ?>
 
-            <h2> Veuillez indiquer votre question :</h2>
+    <h1> Création de votre sondage !</h1>
 
-            <form method="post" action="createSondageView.php?submit=createSondage">
-                <input type="text" name="sondageQuestion">
-                <button type="submit">Envoyer</button>
-            </form>
+    <h2> Veuillez indiquer votre question :</h2>
 
-        <?php
-    }
+    <form method="post" action="createSondageView.php?submit=createSondage">
+        <input type="text" name="sondageQuestion">
+        <button type="submit">Envoyer</button>
+    </form>
 
-    if ($_GET['submit'] == 'createSondage') {
-        $sondage->setSondage($_POST['sondageQuestion'], $_SESSION['user_id']);
-        header('Location: CreateSondageView.php?submit=reponse');
-    }
-
-    if ($_GET['submit'] == 'reponse') {
-        ?>
-        
+    <?php
+        }
+        //Ajoute la question dans la BDD
+        if ($_GET['submit'] == 'createSondage') {
+            $sondage->setSondage($_POST['sondageQuestion'], $_SESSION['user_id']);
+            header('Location: CreateSondageView.php?submit=reponse');
+        }
+        //Demande les différentes réponse possible
+        if ($_GET['submit'] == 'reponse') { ?>
 
             <h2>Indiquez les réponses possibles :</h2>
 
@@ -46,28 +56,31 @@
                 <input type="text" name="reponse2">
                 <button name="sendReponse" type="submit">Envoyer</button>
             </form>
+        <?php }
 
+
+        if ($_GET['submit'] == 'sendResponse') {
+            $sondage_id = $sondage->getSondage($_SESSION['user_id']);
+            ?>
+
+            <h2>Votre sondage a bien été ajouté !</h2>
+
+            <?php
+            
+            $i = 1;
+            while (isset($_POST['reponse' . $i])) {
+                $sondage->setResponse($_POST['reponse' . $i], $sondage_id['sondage_id']);
+                $i++;
+            }
+    
+            ?>
+        <a href="indexView.php">Retour Acceuil</a>
         <?php
-    }
-
-    if ($_GET['submit'] == 'sendResponse') {
-        $sondage_id = $sondage->getSondage($_SESSION['user_id']);
+        
+            }
+        
         ?>
 
-        <h2>Votre sondage a bien été ajouté !</h2>
+</body>
 
-        <?php
-
-        $i = 1;
-        while (isset($_POST['reponse' . $i])) {
-            $sondage->setResponse($_POST['reponse' . $i], $sondage_id['sondage_id']);
-            $i++;
-        }
-
-        ?>
-            <a href="indexView.php">Retour Acceuil</a>
-        <?php
-
-    }
-
-?>
+</html>

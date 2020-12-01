@@ -35,21 +35,18 @@
         }
     ?>
 
-    <h1>Liste d'amis</h1>
-    <table>
-        <tr>
-            <td>Pseudo</td>
-            <td>Supprimer</td>
-        </tr>
+    <p class="titre">Liste d'amis en ligne</p>
+    <?php
+        $listFriends = $friendList->getFriendList();
+    ?>
+    <p class="titre">Liste d'amis hors ligne</p>
+    <?php
+        $listFriendsH = $friendList->getFriendListDisconnect();
+    ?>
 
-
-        <?php
-              $listFriends = $friendList->getFriendList();
-         ?>
-    </table>
-
+    <p class="titre">RECHERCHER UNE PERSONNE</p>
     <form method="POST" action="friendListView.php?submit=send">
-        <input type="text" name="recherche">
+        <input type="text" placeholder="Rechercher..." name="recherche">
         <input type="submit" value="Rechercher">
     </form>
 
@@ -58,7 +55,7 @@
         <?php
     if (isset($_GET['submit'])){
        foreach($searchFriend as $friend):
-            echo '<tr><td>' . $friend["user_pseudo"] . '</td><td><a href="friendListView.php?addFriendId=' . $friend['user_id'] .'">|  Ajouter amis</a></td></tr>'; 
+            echo '<tr><td>' . $friend["user_pseudo"] . '</td><td><a href="friendListView.php?addFriendId='.$friend['user_id'] .'" class="green">|  Ajouter amis</a></td></tr>'; 
         endforeach;
     }   
               
