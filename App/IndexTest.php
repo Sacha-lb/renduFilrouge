@@ -16,9 +16,8 @@ class IndexTest extends Database {
     public function getSondageFinis (){
         $listSondageF = $this->pdo->query("SELECT *
                                           FROM sondage 
-                                          WHERE sondage_finish >= NOW()");
-        $listSondageF = $listSondageF->fetchAll();
+                                          WHERE sondage_finish <= NOW()");
+        return $listSondageF = $listSondageF->fetchAll();
     }
-
 
 }
