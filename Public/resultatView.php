@@ -14,7 +14,7 @@
         include 'header.php';
         if (isset($_GET['submit'])) {
             if (empty($_POST['reponse'])) {
-                //header('location: sondageView.php?error=empty&sondage_id='. $_GET['sondage_id'] .'');
+                header('location: sondageView.php?error=empty&sondage_id='. $_GET['sondage_id'] .'');
             }
         }
         
@@ -34,8 +34,10 @@
             $chat = new AjaxRequest();
             $sondage = new Sondage();
 
-            if ($_GET['submit'] === 'yes') {
-                $sondage = $sondage->setReponse();
+            if (isset($_GET['submit'])) {
+                if ($_GET['submit'] === 'yes') {
+                    $sondage = $sondage->setReponse();
+                }
             }
         ?>
 
@@ -64,7 +66,7 @@
                 </ul>
             </article>
         </section>
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="../js/chat.js"></script>
     </main>

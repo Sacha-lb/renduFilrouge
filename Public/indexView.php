@@ -30,7 +30,7 @@ $listeSondageFini = $sondageEnCours->getSondageFinis();
     <ul>
         <?php
             foreach($listeSondageFini as $sondage):
-                echo "<li><a href = sondageView.php?sondage_id=" .  $sondage['sondage_id'] . ">". $sondage['sondage_question'] ."</a></li>"; 
+                echo "<li><a href = resultatView.php?sondage_id=" .  $sondage['sondage_id'] . ">". $sondage['sondage_question'] ."</a></li>"; 
             endforeach;
         ?>
     </ul>

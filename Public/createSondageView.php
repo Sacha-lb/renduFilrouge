@@ -61,7 +61,6 @@
         $i = 1;
         while (isset($_POST['reponse' . $i])) {
             $sondage->setResponse($_POST['reponse' . $i], $sondage_id['sondage_id']);
-            var_dump($sondage);
             $i++;
         }
 

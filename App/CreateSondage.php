@@ -27,7 +27,7 @@ Class CreateSondage extends Database{
     }
 
     public function setResponse($reponse1, $sondageID){
-        $insert = $this->pdo->query("INSERT INTO sondageReponse(sondage_id, sondageReponse_reponse) 
-                                    VALUES ('$sondageID','$reponse1')");
+        $insert = $this->pdo->query("INSERT INTO sondageReponse(sondage_id, sondageReponse_reponse, sondageReponse_reponseScore) 
+                                    VALUES ('$sondageID','$reponse1', 0)");
     }
 }
