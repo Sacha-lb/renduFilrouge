@@ -20,7 +20,7 @@ class FriendList extends Database{
 			echo "<li> " . $friend['user_pseudo']."<a href='friendListView.php?delete=". $friend['friendsList_id'] ."' class='red'>supprimer</a></li>";
 		}
 		foreach ($listFriends2 as $friend) {
-			echo "<li> " . $friend['user_pseudo']."<a href='friendListView.php?delete=". $friend['friendsList_id'] ."'>X</a></li>";
+			echo "<li> " . $friend['user_pseudo']."<a href='friendListView.php?delete=". $friend['friendsList_id'] ."' class='red'>supprimer</a></li>";
 		}
 	}
 
@@ -37,7 +37,7 @@ class FriendList extends Database{
 			echo "<li> " . $friend['user_pseudo']."<a href='friendListView.php?delete=". $friend['friendsList_id'] ."' class='red'>supprimer</a></li>";
 		}
 		foreach ($listFriends2 as $friend) {
-			echo "<li> " . $friend['user_pseudo']."<a href='friendListView.php?delete=". $friend['friendsList_id'] ."'>X</a></li>";
+			echo "<li> " . $friend['user_pseudo']."<a href='friendListView.php?delete=". $friend['friendsList_id'] ."' class='red'>supprimer</a></li>";
 		}
 	}
 
