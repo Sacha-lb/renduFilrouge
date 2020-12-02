@@ -40,7 +40,12 @@
                 }
             }
         ?>
-
+        <a href="resultatView.php?invite=yes">Invite tes amis</a>
+        <?php 
+         if(isset($_GET['invite'])){
+             $sondage->shareEmail($_SESSION['user_id']);
+         }
+        ?>
         <section class="chat">
             <article id="zoneMessage">
                 <div class="message">
