@@ -26,6 +26,9 @@
             header('Location: CreateSondageView.php?submit=create');
         }
         if ($_GET['submit'] == 'create') {
+            if (isset($_GET['complete'])) {
+                echo 'Veuillez remplir tout les champs';
+            }
     ?>
 
     <h1> Création de votre sondage !</h1>
@@ -35,7 +38,7 @@
     <form method="post" action="createSondageView.php?submit=createSondage">
         <p>Question : </p>
         <input type="text" name="sondageQuestion">
-        <p>Temps : </p>
+        <p>Temps en minutes (60 max): </p>
         <input id="number" name="number" type="number" value="0" min="0" max="60">
         <button type="submit">Envoyer</button>
     </form>

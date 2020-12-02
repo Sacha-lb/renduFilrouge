@@ -51,19 +51,19 @@ class Sondage extends Database{
             foreach ($listSondageEnCours as $Fetch) {
 
                 $sujet = 'Répondre à un sondage';
-                $message = "Salut,<br /> Je t'invite à répondre à mon nouveau sondage";
+                $message = "Salut,<br /> Je t'invite à répondre à mon nouveau sondage a ce <a href='localhost/Public/indexView.php'> lien </a>'";
                 $destinataire = $Fetch['user_email'];
                 $headers = "From: \"expediteur moi\"<moi@domaine.com>\n";
                 $headers .= "Reply-To: moi@domaine.com\n";
                 $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
-                if(mail($destinataire,$sujet,$message,$headers)){
-                    echo "L'email a bien été envoyé.";
-                }
-                else{
-                   echo "Une erreur c'est produite lors de l'envois de l'email.";
-                }
 
             }
+        }
+        if(mail($destinataire,$sujet,$message,$headers)){
+            echo "<p class='green'>L'email a bien été envoyé.</p>";
+        }
+        else{
+           echo "Une erreur c'est produite lors de l'envois de l'email.";
         }
     }
 }

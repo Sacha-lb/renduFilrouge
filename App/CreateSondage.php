@@ -9,7 +9,6 @@ Class CreateSondage extends Database{
     
     public function setSondage($sondageQuestion, $userid, $tempsnumber){
 
-        //On récupere le temps et la question de l'utilisateur puis l'entrons dans la bdd
         $temps = $tempsnumber;
 
         $question = htmlspecialchars($sondageQuestion);
@@ -31,8 +30,13 @@ Class CreateSondage extends Database{
 
     public function setResponse($reponse1, $sondageID){
 
-        //On insert les réponse entrée par l'utilisateur dans la bdd
-        $insert = $this->pdo->query("INSERT INTO sondageReponse(sondage_id, sondageReponse_reponse, sondageReponse_reponseScore) 
-                                    VALUES ('$sondageID','$reponse1', 0)");
+        if (!empty($reponse1)) {
+            //On insert les réponse entrée par l'utilisateur dans la bdd
+            $insert = $this->pdo->query("INSERT INTO sondageReponse(sondage_id, sondageReponse_reponse, sondageReponse_reponseScore) 
+            VALUES ('$sondageID','$reponse1', 0)");
+        }else {
+            header("location: createSondageView.php?submit=reponse");
+        }
+        
     }
 }

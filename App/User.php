@@ -94,26 +94,34 @@ class User extends Database{
 
     public function updateUser($champs, $value, $user)
     {
-        $value = htmlspecialchars($value);
-        $insert = $this->pdo->prepare("UPDATE user SET $champs= :valeur
-                                        WHERE user_id = $user");
-        $insert->execute(array(
-            'valeur' => $value,
-        ));
-        $_SESSION[$champs] = $value;
-        echo $champs . ' Modifier avec succes !';
+        if (!empty($value)) {
+            $value = htmlspecialchars($value);
+            $insert = $this->pdo->prepare("UPDATE user SET $champs= :valeur
+                                            WHERE user_id = $user");
+            $insert->execute(array(
+                'valeur' => $value,
+            ));
+            $_SESSION[$champs] = $value;
+            echo $champs . ' Modifier avec succes !';
+        }else{
+            echo 'Veuillez remplir tout les champs';
+        }
     }
 
     public function updatePassword($value, $user)
     {
-        $value = hash('sha256', $value);
+        if (!empty($value)) {
+            $value = hash('sha256', $value);
 
-        $insert = $this->pdo->prepare("UPDATE user SET user_password = :valeur
-                                        WHERE user_id = $user");
-        $insert->execute(array(
-            'valeur' => $value,
-        ));
-        echo 'MDP Modifier avec succes !';
+            $insert = $this->pdo->prepare("UPDATE user SET user_password = :valeur
+                                            WHERE user_id = $user");
+            $insert->execute(array(
+                'valeur' => $value,
+            ));
+            echo 'MDP Modifier avec succes !';
+        }else{
+            echo 'Veuillez remplir tout les champs';
+        }
     }
 
     public function disconnect($user)

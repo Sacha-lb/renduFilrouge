@@ -55,7 +55,10 @@
         <?php
     if (isset($_GET['submit'])){
        foreach($searchFriend as $friend):
-            echo '<tr><td>' . $friend["user_pseudo"] . '</td><td><a href="friendListView.php?addFriendId='.$friend['user_id'] .'" class="green">|  Ajouter amis</a></td></tr>'; 
+            if ($friend['user_id'] === $_SESSION['user_id']) {
+                echo '<tr><td>' . $friend["user_pseudo"] . '</td><td><p>|  Vous </p></td></tr>'; 
+            }
+            echo '<tr><td>' . $friend["user_pseudo"] . '</td><td><a href="friendListView.php?addFriendId='.$friend['user_id'] .'" class="green">|  Ajouter amis </a></td></tr>'; 
         endforeach;
     }   
               

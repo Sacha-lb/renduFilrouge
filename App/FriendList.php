@@ -57,7 +57,6 @@ class FriendList extends Database{
 
 	public function searchFriend($pseudo)
 	{
-
 		//On recherche une personne avec un pseudo qui contient ce que l'utilisateur a entrer
 		$pseudo = "%". $pseudo . "%";
 		$query = $this->pdo->query("SELECT user_pseudo, user_id FROM user WHERE user_pseudo LIKE '$pseudo' ");
@@ -68,8 +67,8 @@ class FriendList extends Database{
 	public function addFriend($friendId, $user)
 	{	
 		//On vérifie que les deux personne ne sont pas déjà amis
-		$listFriends = $this->pdo->query("SELECT friendsList_id,user_pseudo,friendsList_userID2 FROM friendslist INNER JOIN user ON user.user_id = friendslist.friendsList_userID2 WHERE friendsList_userID1 = $user AND user_online = 0");
-		$listFriends2 = $this->pdo->query("SELECT friendsList_id,user_pseudo,friendsList_userID1 FROM friendslist INNER JOIN user ON user.user_id = friendslist.friendsList_userID1 WHERE friendsList_userID2 = $user AND user_online = 0");
+		$listFriends = $this->pdo->query("SELECT * FROM friendslist WHERE friendsList_userID1 = $user AND friendsList_userID2 = $friendId");
+		$listFriends2 = $this->pdo->query("SELECT * FROM friendslist WHERE friendsList_userID2 = $user AND friendsList_userID1 = $friendId");
 		
 		$row = $listFriends->rowcount();
 
