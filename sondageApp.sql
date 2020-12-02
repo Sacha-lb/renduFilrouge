@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mar. 01 déc. 2020 à 21:49
+-- Généré le : mer. 02 déc. 2020 à 20:24
 -- Version du serveur :  10.5.8-MariaDB
 -- Version de PHP : 7.4.12
 
@@ -103,7 +103,8 @@ INSERT INTO `sondage` (`sondage_id`, `sondage_question`, `user_id`, `sondage_fin
 (32, 'Que vais-je manger ce soir ?', 26, '2020-12-01 17:06:55'),
 (33, 'Quelle temps fait-il demain ?', 26, '2020-12-01 17:07:07'),
 (34, 'Quel film je vais regarder ce soir ?', 26, '2020-12-01 17:08:48'),
-(37, 'Quel série je vais regarder ?', 26, '2020-12-01 21:40:35');
+(37, 'Quel série je vais regarder ?', 26, '2020-12-01 21:40:35'),
+(38, 'Quel survetement acheter ? ', 24, '2021-07-14 19:39:14');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,9 @@ INSERT INTO `sondagereponse` (`sondageReponse_id`, `sondage_id`, `sondageReponse
 (23, 34, 'Hunger Games', 2),
 (24, 34, 'Indiana Jones', 2),
 (29, 37, 'Lucifer', 1),
-(30, 37, 'Suits', 0);
+(30, 37, 'Suits', 0),
+(31, 38, 'Le nike', 0),
+(32, 38, 'Le Addidas', 0);
 
 -- --------------------------------------------------------
 
@@ -168,7 +171,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `user_pseudo`, `user_firstName`, `user_lastName`, `user_email`, `user_password`, `user_online`) VALUES
 (23, 'sachaPseudo', 'Sacha', 'Le Bras', 'mail@mail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 1),
-(24, 'AyoubPseudo', 'Ayoub', 'El Guendouz', 'mail2@mail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 1),
+(24, 'AyoubPseudo', 'Ayoub', 'El Guendouz', 'mail2@mail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 0),
 (25, 'MathildePseudo', 'Mathilde', 'Asselin', 'mail3@mail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 0),
 (26, 'Alexandre.G', 'Alexandre', 'Gaillot', 'alexandre@mail.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 1);
 
@@ -232,13 +235,13 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT pour la table `sondage`
 --
 ALTER TABLE `sondage`
-  MODIFY `sondage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `sondage_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT pour la table `sondagereponse`
 --
 ALTER TABLE `sondagereponse`
-  MODIFY `sondageReponse_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `sondageReponse_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT pour la table `sondagereponseuser`

@@ -26,6 +26,7 @@
             switch ($_GET["error"]) {
                 case 'connected':
                     echo '<h1 class="green">Vous êtes connecter !</h1>';
+                    header("location: indexView.php");
                     break;
                 case 'password':
                     echo '<h1 class="red">Mot de passe incorect !</h1>';

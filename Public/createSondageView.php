@@ -54,25 +54,25 @@
         //Demande les différentes réponse possible
         if ($_GET['submit'] == 'reponse') { ?>
 
-            <h2>Indiquez les réponses possibles :</h2>
+    <h2>Indiquez les réponses possibles :</h2>
 
-            <form method="post" action="createSondageView.php?submit=sendResponse">
-                <p>Reponse 1 : </p>
-                <input type="text" name="reponse1">
-                <p>Reponse 2 : </p>
-                <input type="text" name="reponse2">
-                <button name="sendReponse" type="submit">Envoyer</button>
-            </form>
-        <?php }
+    <form method="post" action="createSondageView.php?submit=sendResponse">
+        <p>Reponse 1 : </p>
+        <input type="text" name="reponse1">
+        <p>Reponse 2 : </p>
+        <input type="text" name="reponse2">
+        <button name="sendReponse" type="submit">Envoyer</button>
+    </form>
+    <?php }
 
 
         if ($_GET['submit'] == 'sendResponse') {
             $sondage_id = $sondage->getSondage($_SESSION['user_id']);
             ?>
 
-            <h2>Votre sondage a bien été ajouté !</h2>
+    <h2>Votre sondage a bien été ajouté !</h2>
 
-            <?php
+    <?php
             
             $i = 1;
             while (isset($_POST['reponse' . $i])) {
@@ -81,8 +81,8 @@
             }
     
             ?>
-        <a href="indexView.php">Retour Acceuil</a>
-        <?php
+    <a href="indexView.php">Retour à Acceuil</a>
+    <?php
         
             }
         
