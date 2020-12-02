@@ -45,8 +45,10 @@
                 if (isset($_POST[$_GET['modifier']])) {
                     if ($_GET['modifier'] === 'user_password') {
                         $user->updatePassword($_POST[$_GET['modifier']], $_SESSION['user_id']);
+                        header("location: profilView.php");
                     }else{
                         $user->updateUser($_GET['modifier'], $_POST[$_GET['modifier']], $_SESSION['user_id']);
+                        header("location: profilView.php");
                     }
                 }
 

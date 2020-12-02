@@ -27,9 +27,9 @@ Go to phpmyadmin, click on import and select the sql file who is in your racine 
 
 ## Fonctionnement du site
 
-Tout d'abord connectez vous avec vos identifiant, sinon vous n'aurez accès a aucune autre page
+Tout d'abord connectez vous avec vos identifiant, sinon vous n'aurez accès a aucune page
 
-Vos identifiant sont les suivant:
+Vos identifiants sont les suivant:
 
 ```php
 userInformation :

@@ -33,7 +33,10 @@
     <h2> Veuillez indiquer votre question :</h2>
 
     <form method="post" action="createSondageView.php?submit=createSondage">
+        <p>Question : </p>
         <input type="text" name="sondageQuestion">
+        <p>Temps : </p>
+        <input id="number" name="number" type="number" value="0" min="0" max="60">
         <button type="submit">Envoyer</button>
     </form>
 
@@ -41,8 +44,12 @@
         }
         //Ajoute la question dans la BDD
         if ($_GET['submit'] == 'createSondage') {
-            $sondage->setSondage($_POST['sondageQuestion'], $_SESSION['user_id']);
-            header('Location: CreateSondageView.php?submit=reponse');
+            if (empty($_POST['sondageQuestion'])) {
+                header('Location: CreateSondageView.php?submit=create');
+            }else{
+                $sondage->setSondage($_POST['sondageQuestion'], $_SESSION['user_id'],$_POST['number']);
+                header('Location: CreateSondageView.php?submit=reponse');
+            }
         }
         //Demande les différentes réponse possible
         if ($_GET['submit'] == 'reponse') { ?>

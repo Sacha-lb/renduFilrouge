@@ -5,10 +5,11 @@ namespace App;
 use Core\Database;
 
 Class CreateSondage extends Database{
+    
+    
+    public function setSondage($sondageQuestion, $userid, $tempsnumber){
 
-    public function setSondage($sondageQuestion, $userid){
-
-        $temps = 15;
+        $temps = $tempsnumber;
 
         $question = htmlspecialchars($sondageQuestion);
 

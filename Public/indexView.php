@@ -4,11 +4,6 @@ use App\IndexTest;
 
 require "../Autoloader.php";
 Autoloader::register();
-
-
-$sondageEnCours = new IndexTest();
-$listeSondageEnCours = $sondageEnCours->getSondageEnCours();
-$listeSondageFini = $sondageEnCours->getSondageFinis();
 ?>
 
 
@@ -24,9 +19,18 @@ $listeSondageFini = $sondageEnCours->getSondageFinis();
 </head>
 <body>
     <?php
-    include 'header.php';
+        include 'header.php';
+        $sondageEnCours = new IndexTest();
+        $listeSondageFini = $sondageEnCours->getSondageFinis($_SESSION['user_id']);
     ?>
-    <h1>Liste des sondages fini</h1>
+    <h1>Liste des sondages en cours de vos amis</h1>
+    <ul>
+        <?php
+            $listeSondageEnCours = $sondageEnCours->getSondageEnCours($_SESSION['user_id']);
+
+        ?>
+    </ul>
+    <h1>Liste de vos sondages fini</h1>
     <ul>
         <?php
             foreach($listeSondageFini as $sondage):
@@ -34,12 +38,10 @@ $listeSondageFini = $sondageEnCours->getSondageFinis();
             endforeach;
         ?>
     </ul>
-    <h1>Liste des sondages en cours</h1>
+    <h1>Liste de vos sondages en cours</h1>
     <ul>
         <?php
-            foreach($listeSondageEnCours as $sondage):
-                echo "<li><a href = sondageView.php?sondage_id=" .  $sondage['sondage_id'] . ">". $sondage['sondage_question'] ."</a></li>"; 
-            endforeach;
+            $listeMesSondageEnCours = $sondageEnCours->getMesSondageEnCours($_SESSION['user_id']);
         ?>
     </ul>
 </body>
