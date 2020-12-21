@@ -2,7 +2,13 @@
     border: 1px solid black;
     display: block;
     width: 400px;
-    margin-top: 50px;
+    margin: 30px auto;
+}
+
+.centerLien{
+    display: flex;
+    justify-content: center;
+    color: blue;
 }
 
 #zoneMessage{
@@ -45,4 +51,12 @@
 
 main{
     display: block;
+}
+
+#zoneReponse li{
+    list-style: none;
+}
+
+#zoneReponse{
+    padding: 10px;
 }

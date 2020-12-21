@@ -1,6 +1,7 @@
 <header>
+<img src="../App/img/pngwave.png" alt="logo">
         <ul>
-        
+        <navbar>
             <?php
                 //Lancement de la session
                 session_start();
@@ -26,5 +27,6 @@
             ?>
             <li><a href="createSondageView.php">Crée un sondage</a></li>
             <li><a href="indexView.php">Sondage</a></li>
-        </ul>
+            </navbar>
+        </ul>    
     </header>

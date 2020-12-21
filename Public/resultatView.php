@@ -40,7 +40,7 @@
                 }
             }
         ?>
-        <a href="resultatView.php?invite=yes">Invite tes amis</a>
+        <a class="centerLien" href="resultatView.php?invite=yes">Invite tes amis</a>
         <?php 
          if(isset($_GET['invite'])){
              $sondage->shareEmail($_SESSION['user_id']);

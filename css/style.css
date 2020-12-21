@@ -1,101 +1,249 @@
 *{
     margin: 0;
     padding: 0;
-}
-
-header{
-    background-color: #389db6;
-}
-
-ul{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 40px 0;
-}
-
-ul li{
-    list-style: none;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-}
-
-.login{
-    height: 90vh;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.login form{
-    display: block;
-    margin: auto;
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.login form input{
-    margin: 10px;
-}
-
-h1{
-    text-align: center;
-    margin-top: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.green{
-    color: green;
-}
-
-.red{
-    color: red;
-}
-
-.titre{
-    font-size: 20px;
-    font-weight: bold;
-    margin: 40px 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    scroll-behavior: smooth;
 }
 
 a{
     text-decoration: none;
-    padding: 10px;
     color: black;
 }
 
-.black{
-    color: black;
-}
-
-.profil{
-    display: block;
+.page{
+    height: 100%;
+    width: 100%;
+    position: absolute;
     text-align: center;
 }
 
-.profil li{
-    margin: 30px;
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 10% 80px 10%;
+}
+
+header img{
+    width: 85px;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+header ul{
+    list-style: none;
 
 }
 
-.profil a{
-    padding: 10px;
-    background-color: darkgray;
+header li{
+    padding: 30px 45px;
+    display: inline-block;
+    text-shadow: 1px 1px 0.5px black;
+    font-size: 18px;
+    border-right: 1px solid #000000;
+    cursor: pointer;
+    position: relative;
+}
+
+.lastItem{
+    border-right: none;
+}
+
+.lastItem::before{
+    content: "";
+    background-color: cornflowerblue;
+    height: 8px;
+    width: 0%;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    transition: all 0.6s ease-in-out;
     border-radius: 10px;
-    font-size: 13px;
 }
 
-#modif{
-    width: 400px;
-    margin: auto;
+header li::before{
+    content: "";
+    background-color: #ff0000;
+    height: 2px;
+    width: 0%;
+    position: absolute;
+    top: 100%;
+    left: 0%;
+    transition: all 0.6s ease-in-out;
+    border-radius: 15px;
 }
 
-.button{
-    padding: 10px;
-    background-color: darkgray;
-    border-radius: 10px;
-    font-size: 13px;
+header li:hover::before{
+    width: 100%;
 }
+
+
+
+.section1{
+    background: url("../App/img/strong.jpg");
+    min-height: 100%;
+}
+.section2{
+    background: url("../App/img/football.jpg");
+    height: 90%;
+}
+.section3{
+    background: url("../App/img/sauvage.jpg");
+    height: 80%;
+}
+
+.section4{
+    background: url("../App/img/winning.jpg");
+    height: 100%;
+}
+
+.section5{
+    background: url("../App/img/stream.jpg");
+    height: 80%;
+}
+
+
+.section1,.section2,.section3,.section4,.section5{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.titleSection1{
+    position: absolute;
+    font-family: 'Indie Flower';
+    color: black;
+    font-size: 70px;
+    font-weight: bold;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.titleSection2{
+    position: absolute;
+    font-family: 'Archivo Narrow';
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.titleSection2 a{
+    color: white;
+}
+
+.titleSection3{
+    position: absolute;
+    font-family: 'Archivo Narrow';
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.titleSection3 a{
+    color: white;
+}
+
+.titleSection5 a{
+    color: white;
+}
+
+
+.textSection{
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    background-color: white;
+}
+
+.textSection h1{
+    margin-bottom: 50px;
+}
+
+.textSection p{
+    width: 80%;
+    line-height: 30px;
+}
+
+.section4 h1{
+    position: absolute;
+    color: white;
+    font-size: 90px;
+    font-weight: bold;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Archivo Narrow';
+}
+
+.titleSection5{
+    position: absolute;
+    font-family: 'Archivo Narrow';
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    top: 30%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.sondageMenu{
+    text-align: center;
+    color: #525252;
+    font-family: 'Nunito';
+    margin-bottom: 10px;
+}
+
+.sondageConcept{
+    text-align: center;
+    color: #BD2C00;
+    font-family: 'Nunito';
+    margin-bottom: 10px;
+}
+
+.menu li a{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+
+
+@media only screen and (max-width: 1060px) {
+    header li{
+        border-right: none;
+        display: block;
+    }
+    navbar{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .titleSection2, .titleSection3, .titleSection5{
+        left: 50%;
+    }
+}
+
+
+
+
+
+
+

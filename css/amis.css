@@ -1,0 +1,28 @@
+.pageAmis{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Nunito';
+}
+
+.titre{
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+.pageAmis input{
+    padding: 6px 14px;
+    border-radius: 5px;
+}
+
+.ol{
+    color: blue;
+}
+
+.hl{
+    color: red;
+}
+
+.sf{
+    font-weight: bold;
+}

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/connexion.css">
 </head>
 
 <body>
@@ -46,8 +47,9 @@
             <?php
         }else{
             ?>
-                <div class="login">
+                <div class="connexion">
                     <form action="loginView.php?submit=send" method="post">
+                        <h3>Connexion</h3>
                         <label for="email">Pseudo : </label>
                         <input type="text" name="pseudo"> <br>
                         <label for="email">Password : </label>

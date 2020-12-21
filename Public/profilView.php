@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profil.css">
 </head>
 
 <body>
@@ -21,15 +23,19 @@
     <?php include 'header.php';?>
 
     <main>
-        <h1>PROFIL</h1>
-        <ul class="profil">
-            <li class="black">Nom: <?= $_SESSION['user_lastName'] ?> <a href="profilView.php?modifier=user_lastName">MODIFIER</a></li>
-            <li class="black">Prenom: <?= $_SESSION['user_firstName'] ?> <a href="profilView.php?modifier=user_firstName">MODIFIER</a></li>
-            <li class="black">Pseudo: <?= $_SESSION['user_pseudo'] ?> <a href="profilView.php?modifier=user_pseudo">MODIFIER</a></li>
-            <li class="black">Email: <?= $_SESSION['user_email'] ?> <a href="profilView.php?modifier=user_email">MODIFIER</a></li>
-            <li class="black">Mot de passe: ********** <a href="profilView.php?modifier=user_password">MODIFIER</a></li>
-            <li><a href="profilView.php?modifier=disconnect" class="red" >Se Déconnecter</a></li>
-        </ul>
+        
+            <h1 class="profilTitle">PROFIL</h1>
+            <div class="profilCenter">
+                <ul class="profil">
+                    <li class="black">Nom: <?= $_SESSION['user_lastName'] ?> <a href="profilView.php?modifier=user_lastName">MODIFIER</a></li>
+                    <li class="black">Prenom: <?= $_SESSION['user_firstName'] ?> <a href="profilView.php?modifier=user_firstName">MODIFIER</a></li>
+                    <li class="black">Pseudo: <?= $_SESSION['user_pseudo'] ?> <a href="profilView.php?modifier=user_pseudo">MODIFIER</a></li>
+                    <li class="black">Email: <?= $_SESSION['user_email'] ?> <a href="profilView.php?modifier=user_email">MODIFIER</a></li>
+                    <li class="black">Mot de passe: ********** <a href="profilView.php?modifier=user_password">MODIFIER</a></li>
+                    <li><a href="profilView.php?modifier=disconnect" class="red" >Se Déconnecter</a></li>
+                </ul>
+        </div>
+        
 
 
         <?php

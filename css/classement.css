@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Slabo 27px';
+    margin: 70px 0 70px 0;
+}
+
+header img{
+    width: 85px;
+    height: auto;
+}
+
+header a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    color: black;
+    font-size: 40px;
+    padding: 20px;
+}
+
+div{
+    margin: 50px 10% 0 10%;
+    background: url("../img/sky.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: center;
+    padding-top: 15px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-bottom: 50px;
+}
+
+.te{
+    text-align: center;
+    font-family: 'Roboto';
+    text-decoration: underline;
+}
+
+
+.section3{
+    width: 25%;
+    background-color: #444448c4;
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 20px;
+    align-items: center;
+    flex-direction: column;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+    border: 1px solid white;
+    color: whitesmoke;
+    font-size: 22px;
+}
+
+.section2{
+    width: 25%;
+    background-color: #d6e5f3;
+    height: 400px;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 20px;
+    align-items: center;
+    flex-direction: column;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+.section1{
+    width: 25%;
+    background-color: #d6e5f3;
+    height: 600px;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 20px;
+    align-items: center;
+    flex-direction: column;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+div img{
+    width: 80px;
+    height: auto;
+}
+
+section{
+    margin: 0 50px 0 50px;
+}
+
+section span{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+section p{
+    margin-top: 15px;
+}
+
+.section1, .section2, .section3{
+    border: 1px solid white;
+    color: whitesmoke;
+    font-size: 22px;
+    background-color: #444448c4;
+}

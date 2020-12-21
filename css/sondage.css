@@ -1,13 +1,26 @@
-form{
+.pageSondage{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 0;
+    font-family: 'Nunito';
 }
 
-ul li{
-    list-style: none;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
+.pageSondage h1, .pageSondage h2, .pageSondage p{
+    margin: 15px 0;
+}
+
+.pageSondage input, .pageSondage button{
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+.center{
+    text-align: center;
+}
+
+.centerLien{
+    justify-content: center;
+    margin-top: 15px;
+    display: flex;
+    color: blue;
 }
